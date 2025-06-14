@@ -10,24 +10,24 @@ provider:
     role: arn:aws:iam::537492120510:role/LabRole
 
 functions:
-  scrape_igp:
-    handler: scrap_igp.lambda_handler
+  scrape_table:
+    handler: scrap_table.lambda_handler
     package:
       include:
         - ./**
     events:
       - http:
-          path: /scrape/igp
+          path: /scrape/sismos
           method: get
           cors: true
           integration: lambda
 
 resources:
   Resources:
-    TablaSismosIGP:
+    SismosIGP:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: TablaSismosIGP
+        TableName: SismosIGP
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
