@@ -11,7 +11,7 @@ provider:
 
 functions:
   scrape_table:
-    handler: scrap_table.lambda_handler
+    handler: scrap_igp.lambda_handler
     package:
       include:
         - ./**
